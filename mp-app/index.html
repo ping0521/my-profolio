@@ -4,31 +4,6 @@
 
 </script>
 <!-- <script>
-  function setCookieItem(key, value, options) {
-    if (typeof options.expires === 'number') {
-      var days = options.expires, t = options.expires = new Date();
-      t.setTime(+t + days * 864e+5);
-    }
-    return (document.cookie = [
-      encodeURIComponent(key), '=', encodeURIComponent(String(value)),
-      options.expires ? '; expires=' + options.expires.toUTCString() : '', // use expires attribute, max-age is not supported by IE
-      options.path    ? '; path=' + options.path : '',
-      options.domain  ? '; domain=' + options.domain : '',
-      options.secure  ? '; secure' : ''
-    ].join(''));
-  }
-  function getCookieItem(cookieName) {
-    const name = cookieName + "=";
-    const decodedCookie = decodeURIComponent(document.cookie);
-    const cookieArray = decodedCookie.split(';');
-    for (let i = 0; i < cookieArray.length; i++) {
-      let cookie = cookieArray[i].trim();
-      if (cookie.indexOf(name) === 0) {
-        return cookie.substring(name.length, cookie.length);
-      }
-    }
-    return null;
-  }
   function getQueryParam(url, param) {
     // Expects a raw URL
     var newParam = param.replace(/[[]/, '\\[').replace(/[\]]/, '\\]');
