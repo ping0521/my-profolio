@@ -4,68 +4,6 @@
 
 </script>
 <!-- <script>
-  function getQueryParam(url, param) {
-    // Expects a raw URL
-    var newParam = param.replace(/[[]/, '\\[').replace(/[\]]/, '\\]');
-    var regexS = '[\\?&]' + newParam + '=([^&#]*)';
-    var regex = new RegExp(regexS);
-    var results = regex.exec(url);
-    if (results === null || results && typeof results[1] !== 'string' && results[1].length) {
-      return '';
-    } else {
-      var result = results[1];
-      try {
-        result = decodeURIComponent(result);
-      } catch (err) {
-        console.error('Skipping decoding for malformed query param: ' + result);
-      }
-      return result.replace(/\+/g, ' ');
-    }
-  }
-  function utmNamesMapping(utmName) {
-    var expandedUtmName = '';
-    switch (utmName) {
-      case 'gclid':
-      case 'utm_gclid_current':
-        expandedUtmName = 'utm_gclid';
-        break;
-      default:
-        expandedUtmName = utmName;
-    }
-    return expandedUtmName;
-  }
-  function getTrackDomain() {
-    var trackDomain = '';
-    var hostName = document.domain;
-    var host = $S && $S.global_conf && $S.global_conf.host_suffix ||
-      $S && $S.globalConf && $S.globalConf.host_suffix || '';
-  
-    if (hostName && hostName.includes('.strikingly.com')) {
-      trackDomain = '.strikingly.com';
-    } else if (hostName && hostName.includes('.sxl.cn')) {
-      trackDomain = '.sxl.cn';
-    } else if ($S && $S.live_site || $S && $S.liveBlog) {
-      trackDomain = hostName;
-    } else if (host) {
-      trackDomain = "." + host;
-    } else {
-      trackDomain = location.href && location.href.includes('strikingly') ? '.strikingly.com' : '.sxl.cn';
-    }
-    return trackDomain;
-  }
-  function recordUniqUtmCookies(originUrl, needSetCookie = true) {
-    var campaign_keywords = 'utm_source gclid utm_medium utm_campaign utm_content utm_term'.split(' '),
-        kw = '',
-        uniq_utm_config = {};
-    var index;
-    var siteUrl = originUrl || document.URL;
-    for (index = 0; index < campaign_keywords.length; ++index) {
-      kw = getQueryParam(siteUrl, campaign_keywords[index]);
-      var utm_name = utmNamesMapping(campaign_keywords[index]);
-      if (kw.length !== 0) {
-        uniq_utm_config[utm_name] = kw;
-      }
-    }
     var isUtmCookieExisted = document.cookie && document.cookie.includes('__uniq_utm_config=');
     if (!isUtmCookieExisted) {
       uniq_utm_config['utm_timestamp'] = new Date().getTime();
@@ -499,7 +437,7 @@ window.runAfterDomBinding = {
     #s-content.s-font-weight-300-nav_dropdown-noto-sans-sc .s-font-nav_dropdown p,h1,h2,h3,h4,h5 {
       font-weight: 300;
     }
-     </style></div><div id="s-header" class="s-navbar-section navigator"><div id="s-header-bg" parentBinding="[object Object]" image="[object Object]" class="strikingly-fixed" style="background-repeat:repeat;background-size:cover;background-color:transparent;background-position:center;background-image:url(https://images.unsplash.com/photo-1414005987108-a6d06de8769f?h=1500&amp;w=2000&amp;fit=clip&amp;fm=jpg)" videoHtml="" videoUrl="" dataSrc="https://images.unsplash.com/photo-1414005987108-a6d06de8769f?h=1500&amp;w=2000&amp;fit=clip&amp;fm=jpg" textColor="dark"></div><div id="s-header-banner" parentBinding="[object Object]" image="[object Object]" class="container s-no-bg  s-bg-light-text" bgClassNames="" userClassName="" textColor="" style="background-color:#87674f"><div class="logo ib"><div class="s-component s-image"><div><div class="s-component-content"><div class="s-img-wrapper"><img src="/Users/chenziping/Documents/profolio/mp-app/public/IMG_6392.jpg" alt="broken picture" title="" class="crop-default" data-description="" data-image-link="javascript:void(0);" width="250" height="350" style="object-fit:cover; border-radius:12px;"/></div>
+     </style></div><div id="s-header" class="s-navbar-section navigator"><div id="s-header-bg" parentBinding="[object Object]" image="[object Object]" class="strikingly-fixed" style="background-repeat:repeat;background-size:cover;background-color:transparent;background-position:center;background-image:url(https://images.unsplash.com/photo-1414005987108-a6d06de8769f?h=1500&amp;w=2000&amp;fit=clip&amp;fm=jpg)" videoHtml="" videoUrl="" dataSrc="https://images.unsplash.com/photo-1414005987108-a6d06de8769f?h=1500&amp;w=2000&amp;fit=clip&amp;fm=jpg" textColor="dark"></div><div id="s-header-banner" parentBinding="[object Object]" image="[object Object]" class="container s-no-bg  s-bg-light-text" bgClassNames="" userClassName="" textColor="" style="background-color:#87674f"><div class="logo ib"><div class="s-component s-image"><div><div class="s-component-content"><div class="s-img-wrapper"><img src="/IMG_6392.jpg" alt="broken picture" width="184" height="184" title="" data-description="" data-image-link="javascript:void(0);" style="object-fit:cover; border-radius:12px;"/></div>
 </div></div></div></div><h1 class="header-title"><div class="s-component s-text"><div class=""><div class="s-component-content s-font-title" style="white-space:pre-wrap"><div class="s-rich-text-wrapper" style="display: block;"><p class="s-rich-text-wrapper s-rich-text-wrapper s-rich-text-wrapper s-rich-text-wrapper s-rich-text-wrapper s-rich-text-wrapper s-rich-text-wrapper s-rich-text-wrapper s-rich-text-wrapper">Tzu Ping Chen</p></div></div></div></div></h1><h3 class="header-subtitle"><div class="s-component s-text"><div class=""><div class="s-component-content s-font-heading" style="white-space:pre-wrap"><div class="s-rich-text-wrapper" style="display: block;"><p class="s-rich-text-wrapper s-rich-text-wrapper s-rich-text-wrapper">National Tsing Hua University(NTHU)</p></div></div></div></div></h3></div><div id="s-nav-placeholder"><div class="container"></div></div><div id="s-nav" class="strikingly-fixed"><div class="container"><ul class="s-nav"><li><a class="s-nav-item s-font-body" href="#introduction">Introduction</a></li><li><a class="s-nav-item s-font-body" href="#ai-projects">AI projects</a></li><li style="display:none"><a class="s-nav-item s-font-body" href="#_5"></a></li><li style="display:none"><a class="s-nav-item s-font-body" href="#_6"></a></li><li><a class="s-nav-item s-font-body" href="#game-project">Game project</a></li><li><a class="s-nav-item s-font-body" href="#website-projects">Website projects</a></li><li><a class="s-nav-item s-font-body" href="#computer-architecture-projects">Computer architecture projects</a></li><li><a class="s-nav-item s-font-body" href="#operating-system">Operating System </a></li><li><a class="s-nav-item s-font-body" href="#contact">Contact</a></li></ul></div></div></div><div class="page-wrapper"><div id="prerendered-inline-theme-html"></div><ul style="display:block" class="slides s-page-1  "><li class="slide s-section-1 s-first-visible-section " id="section-f_d33fe3ef-84d7-4d92-be79-2cae937abb16"><div class="waypoint"></div><div class="section-anchor"></div><div>
   <div class="lazyload  s-new-hero-section s-section s-signup-section  s-bottom-padding-none  background-image" data-react-style="{}">
   <div id="introduction" class="container s-rva s-layout-imagesNoImage"><div class=" empty-media"></div><div class="s-rva-text sixteen columns"><div class="s-title-group"><div class="s-title"><div class="s-component s-text"><div class=""><div class="s-component-content s-font-title" style="white-space:pre-wrap"><div class="s-rich-text-wrapper" style="display: block;"><h2 class="s-rich-text-wrapper s-rich-text-wrapper s-rich-text-wrapper s-rich-text-wrapper s-rich-text-wrapper s-rich-text-wrapper s-rich-text-wrapper s-rich-text-wrapper s-rich-text-wrapper s-rich-text-wrapper s-rich-text-wrapper s-rich-text-wrapper s-rich-text-wrapper s-rich-text-wrapper s-rich-text-wrapper s-rich-text-wrapper font-size-tag-header-two s-text-font-size-over-default s-rich-text-wrapper s-rich-text-wrapper s-rich-text-wrapper" style="font-size: 28px;"><strong>Introduction</strong></h2></div></div></div></div></div><div class="s-subtitle"><div class="s-component s-text"><div class=""><div class="s-component-content s-font-heading" style="white-space:pre-wrap"><h4><div class="s-rich-text-wrapper" style="display: block;"><p class="s-rich-text-wrapper s-rich-text-wrapper s-rich-text-wrapper" style="text-align: left;">As a seasoned developer, I specialize in<span style="color: #5e4526;">&nbsp;</span><span style="color: #5e4526;"><strong>leveraging advanced coding techniques</strong></span> and a diverse range of programming languages to deliver robust and efficient solutions. Since 2021, I have successfully completed various projects, encompassing both front-end and back-end technologies.</p><p><span style="display: inline-block">&nbsp;</span></p><p style="text-align: left;">My expertise lies in selecting and utilizing programming languages that best suit the task, ensuring maximum efficiency and effectiveness. This approach has enabled me to design and implement complex, scalable, and responsive systems tailored to diverse business needs. From crafting intuitive user interfaces to building powerful server-side functionalities, my work is defined by a commitment to quality and innovation. My portfolio showcases my ability to transform challenges into successful technological advancements.</p></div></h4></div></div></div></div></div><div class="s-button-wrapper empty-button "><div class="s-image-wrapper"><div class="s-image-item"><div class="s-component s-image"><div><div class="s-component-content"><div class="s-img-wrapper"></div></div></div></div></div><div class="s-image-item"><div class="s-component s-image"><div><div class="s-component-content"><div class="s-img-wrapper"></div></div></div></div></div></div></div></div></div>
