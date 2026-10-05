@@ -1,0 +1,20 @@
+{
+  "name": "profolio",
+  "version": "1.0.0",
+  "description": "personal webpage",
+  "main": "index.js",
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ping0521/profolio.git"
+  },
+  "author": "Tzu-Ping Chen",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ping0521/profolio/issues"
+  },
+  "homepage": "https://github.com/ping0521/profolio#readme"
+}
