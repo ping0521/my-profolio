@@ -1,0 +1,70 @@
+/* Visual-first legacy portfolio: keep nav, titles, images, and links; hide long prose. */
+
+html,
+body {
+  background-color: #87674f !important;
+}
+
+#s-header-bg {
+  background-image: url('https://images.unsplash.com/photo-1414005987108-a6d06de8769f?h=1500&w=2000&fit=clip&fm=jpg') !important;
+  background-size: cover !important;
+  background-position: center !important;
+}
+
+#s-header-bg::after,
+body::before {
+  content: '';
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 0;
+  background:
+    linear-gradient(135deg, rgba(92, 61, 122, 0.72) 0%, rgba(135, 103, 79, 0.55) 45%, rgba(74, 45, 108, 0.68) 100%),
+    radial-gradient(circle at 20% 20%, rgba(180, 140, 255, 0.25), transparent 45%);
+  mix-blend-mode: multiply;
+}
+
+#s-content,
+#s-header,
+.navigator {
+  position: relative;
+  z-index: 1;
+}
+
+#s-header-banner {
+  background-color: rgba(135, 103, 79, 0.92) !important;
+}
+
+/* Hide paragraph-style copy; keep headings and media. */
+.s-font-body,
+.s-item-text .s-component-content,
+.s-rva-text .s-subtitle,
+.s-section .s-subtitle,
+.s-repeatable-item .s-item-subtitle {
+  display: none !important;
+}
+
+/* Introduction section: title only */
+.s-rva-text .s-font-heading {
+  display: none !important;
+}
+
+img,
+.s-img-wrapper,
+.s-media,
+.s-image {
+  display: block !important;
+  visibility: visible !important;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+  border-radius: 8px;
+}
+
+a[href*='drive.google'],
+a[href*='web.app'],
+a[href*='github'] {
+  font-weight: 700;
+}
