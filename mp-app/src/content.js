@@ -6,9 +6,9 @@ export const profile = {
   linkedin: 'https://www.linkedin.com/in/tzu-ping-chen-25a274327/',
   photo: './IMG_6392.png',
   education: [
-    'UC San Diego — M.S. Computer Science (Sep 2025 – Dec 2026)',
-    'National Tsing Hua University — B.S. Data Science & Computer Science',
-    'UC Berkeley — Engineering Certificate for Data Science',
+    { school: 'UC San Diego', degree: 'M.S. Computer Science', dates: 'Sep 2025 – Dec 2026', gpa: '3.75/4.0' },
+    { school: 'National Tsing Hua University', degree: 'B.S. Data Science & Computer Science' },
+    { school: 'UC Berkeley', degree: 'Engineering Certificate for Data Science' },
   ],
   rolesLine:
     'Backend engineer, Software engineer, Research Assistant | Expertise: AI, ML Research, Software Development',

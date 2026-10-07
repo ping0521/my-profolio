@@ -1,5 +1,7 @@
 import { PERFORMANCE_SRC } from './audio'
 import { useEffect, useRef, useState } from 'react'
+import { createPortal } from 'react-dom'
+import Typed from './vendor/typed.js'
 import './App.css'
 import {
   featuredProjects,
@@ -180,12 +182,24 @@ function ProjectDetailBody({ item }) {
 }
 
 function ProjectDetailModal({ detail, onClose }) {
+  const dialogRef = useRef(null)
   const { item, imageIndex } = detail
   const images = item.images ?? []
   const isRich =
     Boolean(item.detailKey && featuredProjectDetails[item.detailKey]) ||
     Boolean(galleryDetailBlocks[item.title]?.length) ||
     Boolean(item.detailBlocks?.length)
+
+  useEffect(() => {
+    const previousFocus = document.activeElement
+    const previousOverflow = document.body.style.overflow
+    document.body.style.overflow = 'hidden'
+    dialogRef.current?.focus({ preventScroll: true })
+    return () => {
+      document.body.style.overflow = previousOverflow
+      previousFocus?.focus({ preventScroll: true })
+    }
+  }, [])
 
   useEffect(() => {
     const onKey = (e) => {
@@ -198,13 +212,15 @@ function ProjectDetailModal({ detail, onClose }) {
   const showImage = images.length > 0
   const activeSrc = showImage ? images[imageIndex] : null
 
-  return (
+  return createPortal(
     <div
       className="project-modal-backdrop"
       role="presentation"
       onClick={onClose}
     >
       <div
+        ref={dialogRef}
+        tabIndex={-1}
         className={`project-modal${isRich ? ' project-modal-wide' : ''}`}
         role="dialog"
         aria-modal="true"
@@ -237,7 +253,8 @@ function ProjectDetailModal({ detail, onClose }) {
           </p>
         ) : null}
       </div>
-    </div>
+    </div>,
+    document.body,
   )
 }
 
@@ -428,6 +445,40 @@ function FeaturedProjectCards({ items }) {
         <ProjectDetailModal detail={detail} onClose={() => setDetail(null)} />
       ) : null}
     </>
+  )
+}
+
+function HeroRoles({ motionOk }) {
+  const textRef = useRef(null)
+  const text = 'Backend engineer, Software engineer, Research assistant | AI agents · ML research · Software development'
+
+  useEffect(() => {
+    if (!motionOk) return undefined
+    const options = {
+      typeSpeed: 55,
+      backSpeed: 28,
+      backDelay: 2200,
+      startDelay: 350,
+      loop: true,
+      smartBackspace: true,
+    }
+    const typed = new Typed(textRef.current, { ...options, strings: [text] })
+    return () => {
+      typed.destroy()
+    }
+  }, [motionOk])
+
+  return (
+    <div className="hero-roles">
+      <div className="hero-role-row">
+        <div className="eyebrow hero-typing-lines">
+          <div aria-hidden="true">
+            {motionOk ? <span ref={textRef} /> : text}
+          </div>
+          <span className="sr-only">{text}</span>
+        </div>
+      </div>
+    </div>
   )
 }
 
@@ -695,7 +746,7 @@ function App() {
                       window.history.replaceState(null, '', `#${item.id}`)
                     }}
                   >
-                    {item.label}
+                    <span className="nav-label">{item.label}</span>
                   </a>
                 ))}
               </div>
@@ -705,11 +756,23 @@ function App() {
           <main id="top">
             <section className="hero reveal">
               <div className="hero-copy">
-                <p className="eyebrow">{profile.rolesLine}</p>
-                <h1>{profile.name}</h1>
+                <HeroRoles motionOk={motionOk} />
+                <h1 className="hero-name" aria-label={profile.name}>
+                  {profile.name.split(' ').map((word, index) => (
+                    <span className="hero-name-word" aria-hidden="true" key={word}
+                      style={{ '--word-delay': `${index * 100}ms` }}>{word}{' '}</span>
+                  ))}
+                </h1>
                 <ul className="edu-list">
                   {profile.education.map((e) => (
-                    <li key={e}>{e}</li>
+                    <li className="education-entry" key={e.school}>
+                      <div className="education-heading">
+                        <strong>{e.school}</strong>
+                        {e.gpa ? <span className="education-gpa">GPA {e.gpa}</span> : null}
+                      </div>
+                      <span className="education-degree">{e.degree}</span>
+                      {e.dates ? <span className="education-dates">{e.dates}</span> : null}
+                    </li>
                   ))}
                 </ul>
               </div>
