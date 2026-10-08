@@ -1,5 +1,19 @@
 /** Long-form project write-ups for featured cards (click to expand). */
 export const featuredProjectDetails = {
+  nachosOs: [
+    {
+      type: 'paragraph',
+      text: 'Implemented timer-driven thread sleeping, thread joining, interrupt-based condition variables, and cancellable timed waits; coordinated blocking and wakeups through atomic state updates without busy-waiting.',
+    },
+    {
+      type: 'list',
+      items: [
+        'Built tagged rendezvous for pairwise value exchange and asynchronous futures supporting multiple result consumers, using locks and condition variables to synchronize concurrent threads.',
+        'Enabled multiprogramming through six file system calls and exec, join, and exit; implemented per-process file descriptor tables, unique process IDs, parent–child lifecycle tracking, page-table address translation, synchronized noncontiguous physical page allocation, read-only protection, argument validation, and resource reclamation.',
+        'Implemented demand paging with lazy frame allocation, page fault handling, clock/second-chance replacement, an inverted page table, and reusable swap slots; reduced redundant disk writes using dirty bits and protected concurrent I/O and user–kernel memory transfers through page pinning and condition-based waiting.',
+      ],
+    },
+  ],
   dayGenie: [
     {
       type: 'paragraph',

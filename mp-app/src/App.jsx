@@ -432,7 +432,7 @@ function FeaturedProjectCards({ items }) {
               }
             >
               <h4>{p.title}</h4>
-              <p className="meta">{p.dates}</p>
+              {p.dates ? <p className="meta">{p.dates}</p> : null}
               <p>{p.blurb}</p>
               {expandable ? (
                 <span className="project-more">Click for full write-up</span>

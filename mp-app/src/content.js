@@ -84,14 +84,14 @@ export const featuredProjects = {
       title: 'Autism Prediction via Multimodal Deep Learning',
       dates: 'Sep 2024 – Jan 2025',
       blurb:
-        'End-to-end PyTorch/TensorFlow pipelines fusing image, text, and behavioral embeddings; transfer learning improved F1 by ~30% (best F1 ≈ 82%).',
+        'Developed CNN and RNN deep learning models in PyTorch and TensorFlow for multimodal feature extraction, processing image, text, and behavioral data through end-to-end data preprocessing, embedding generation, model training, and evaluation pipelines.',
       detailKey: 'autismAsd',
     },
   ],
   systems: [
     {
       title: 'Nachos OS — Threads, Sync & Virtual Memory',
-      dates: 'Systems coursework',
+      detailKey: 'nachosOs',
       blurb:
         'Implemented core OS subsystems in Java within Nachos: thread management, synchronization primitives, system calls, and virtual memory — debugging concurrency across user/kernel space.',
     },
